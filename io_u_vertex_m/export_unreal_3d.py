@@ -279,23 +279,23 @@ def write_files (context, filepath, EXPORT_DATA, EXPORT_ANIM, FORMAT, ANIMSOURCE
     
     datapath = os.path.splitext(filepath)[0] + "_d" + os.path.splitext(filepath)[1] #Data file path.
     if USE_FOLDERS:
-        newdir = os.path.split(datapath)[0] + '\\' + MODELDIR
+        newdir = os.path.join(os.path.split(datapath)[0], MODELDIR)
         
         if not os.path.exists (newdir):
             os.makedirs(newdir)
             
-        datapath = newdir + '\\' + os.path.split(datapath)[1]
+        datapath = os.path.join(newdir, os.path.split(datapath)[1])
             
             
     animpath = os.path.splitext(filepath)[0] + "_a" + os.path.splitext(filepath)[1] #Animation file path.
         
     if USE_FOLDERS:
-        newdir = os.path.split(animpath)[0] + '\\' + ANIMDIR
+        newdir = os.path.join(os.path.split(animpath)[0], ANIMDIR)
         
         if not os.path.exists (newdir):
             os.makedirs(newdir)
             
-        animpath = newdir + '\\' + os.path.split(animpath)[1]   
+        animpath = os.path.join(newdir, os.path.split(animpath)[1])
             
     
     if EXPORT_DATA:
@@ -358,12 +358,12 @@ def write_files (context, filepath, EXPORT_DATA, EXPORT_ANIM, FORMAT, ANIMSOURCE
         ucpath = os.path.splitext(filepath)[0] + ".uc"
         
         if USE_FOLDERS:
-            newdir = os.path.split(ucpath)[0] + '\\' + UCDIR
+            newdir = os.path.join(os.path.split(ucpath)[0], UCDIR)
             
             if not os.path.exists (newdir):
                 os.makedirs(newdir)
                 
-            ucpath = newdir + '\\' + os.path.split(ucpath)[1]
+            ucpath = os.path.join(newdir, os.path.split(ucpath)[1])
             
             
         with open (ucpath, 'w', encoding = 'utf-8') as uc:

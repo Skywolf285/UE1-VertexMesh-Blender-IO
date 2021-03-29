@@ -5,6 +5,9 @@
 #
 #   History:
 #
+#   1.3.7 - 29/03/2021
+#       -Made folder filepaths OS agnostic. Exporting with folder structure on Linux should work correctly now.
+#
 #   1.3.6 - 26/11/2020
 #       -Fixed polyflags getting combined inbetween materials. This made so that, for example, two _UNLIT materials created one _UNLIT (16) and one _FLAT (32) material.
 #		
@@ -84,8 +87,8 @@
 bl_info = {
     "name": "Unreal Engine 1 Vertex Mesh Format",
     "author": "Skywolf",
-    "version": (1, 3, 6),
-    "blender": (2, 80, 0),
+    "version": (1, 3, 7),
+    "blender": (2, 92, 0),
     "location": "File > Import-Export",
     "description": "Export and import _a.3d and _d.3d files",
     "warning": "",
