@@ -49,8 +49,8 @@ The texture name (used for the .uc file) is read from the currently active (sele
 Unreal Engine 1's vertex model format has a few inherit limiation and oddities when interacting with Blender's way of doing things.
 
 - There is a vertex (note vertex. not polygons) limit of 16383 dictated by the animation file (8191 for ION Storm's format).
-- Always keep your vertices within 255x255x255 units. -128 to 127 Blender units on each axis.
-- Cooridinates have a limited resoltion of 2048x2048x1024 within this (65535x65535x65535 for ION Storm's format).
+- Always keep your vertices within 255x255x255 units. -128 to 127 Blender units on each axis. Any vertices that are/move outside this will be clamped.
+- Cooridinates have a limited resolution of 2048x2048x1024 within this (65535x65535x65535 for ION Storm's format).
 - You **can't** have the vertex count of your mesh change during an animation. Doing so will break the animation. The exporter throws and exception in the event it detects this to avoid unexpected results.
 - UVs snap to a 256 to 256 grid. Anything outside the 0-1 UV grid in Blender gets clamped.
 - Unreal snaps to the center of the 256x256 UV coordinates while Blender snaps inbetween pixels. This means that, when snapping to the pixels on a 256x256 resolution texture, you technically have 258x258 possible coordinates. This difference results on a slight offset in the UVs and the outer edge of the UV range getting clamped by a small amount.
