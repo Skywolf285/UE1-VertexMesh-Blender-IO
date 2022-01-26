@@ -2,7 +2,7 @@
 Exporter and importer for the Unreal Engine 1 _a.3d and _d.3d vertex mesh format for Blender. Also has support for ION Storm's variant of the format (Which has a higher vertex precision but cuts the max vertices in half).
 
 ## Installation
-On Github, Click the **Code** button in the top right and select **Download Zip**. 
+On Github, Under **releases** (on the right) click on the latest one. Then click on **io_u_vertex_m.zip** under assets and save this file somewhere.
 
 Then open Blender and go to the **Edit** drop down menu on the top left, select **Preferences...**. Click the **Add-ons** tab on the left and click **install...**. Select the .zip file you just downloaded. Enter *Unreal* in the search field in the top right and make sure **Unreal Engine 1 Vertex Mesh Format** is enabled.
 
