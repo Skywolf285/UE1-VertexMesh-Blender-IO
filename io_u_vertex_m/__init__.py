@@ -90,8 +90,8 @@
 bl_info = {
     "name": "Unreal Engine 1 Vertex Mesh Format",
     "author": "Skywolf",
-    "version": (1, 3, 7),
-    "blender": (2, 92, 0),
+    "version": (1, 3, 8),
+    "blender": (4, 1, 1),
     "location": "File > Import-Export",
     "description": "Export and import _a.3d and _d.3d files",
     "warning": "",
