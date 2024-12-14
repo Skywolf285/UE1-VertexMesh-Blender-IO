@@ -84,16 +84,24 @@ def assign_materials (texnum, polyflags, ob, name):
     mtname+="_"
     mtname+=name
     
-    if mtname in bpy.data.materials:
+    
+    if mtname in ob.data.materials:
         i = 0
-        for m in bpy.data.materials:
+        for m in ob.data.materials:
             if m.name == mtname:
                 break
             i+=1
         return i
     else:
-        mt = bpy.data.materials.new(mtname)
-        ob.data.materials.append(mt)
+        if mtname in bpy.data.materials:
+            for m in bpy.data.materials:
+                if m.name == mtname:
+                    ob.data.materials.append(m)
+                    break
+        else:
+            mt = bpy.data.materials.new(mtname)
+            ob.data.materials.append(mt)
+            
         return len(ob.data.materials)-1
     
     

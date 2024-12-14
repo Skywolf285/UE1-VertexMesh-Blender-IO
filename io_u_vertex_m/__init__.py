@@ -5,12 +5,15 @@
 #
 #   History:
 #
+#   1.3.8 - 14/12/2024
+#       -Fixed issue with wrong material index being assigned to polygons. It now correctly searches in the object's assigned materials rather than the entire open .blend file's materials array.
+#
 #   1.3.7 - 29/03/2021
 #       -Made folder filepaths OS agnostic. Exporting with folder structure on Linux should work correctly now.
 #
 #   1.3.6 - 26/11/2020
 #       -Fixed polyflags getting combined inbetween materials. This made so that, for example, two _UNLIT materials created one _UNLIT (16) and one _FLAT (32) material.
-#		
+#       
 #
 #   1.3.5 - 28/7/2019
 #       -Fixed the _TRANSLUCENT_ flag when importing and exporting materials to _TRANSLUCENT.
