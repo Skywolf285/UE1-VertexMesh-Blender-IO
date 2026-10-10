@@ -4,6 +4,7 @@ import bpy
 import bmesh
 import os
 import ntpath
+from bpy_extras import anim_utils
 
 
 #=======================================================================
@@ -200,12 +201,17 @@ def prep_anim (ANIMSOURCE, FORMAT, SCALE):
     
     if ANIMSOURCE == "ACTIONS":
         for action in bpy.data.actions:
-            if not len(action.fcurves): #check if action has keyframes. If not then it will be skipped.
+            action_fcurves = []
+            for slot in action.slots:
+                channelbag = anim_utils.action_get_channelbag_for_slot(action, slot)
+                if channelbag and channelbag.fcurves:
+                    action_fcurves.extend(channelbag.fcurves)
+            if not len(action_fcurves): #check if action has keyframes. If not then it will be skipped.
                 print ("No keyframes in",action.name,", skipping.")
                 continue
             
             single_key_check = 1
-            for fcu in action.fcurves:
+            for fcu in action_fcurves:
                 single_key_check *= len(fcu.keyframe_points) #Equals 1 if action has only 1 set of keyframes.
                 
             

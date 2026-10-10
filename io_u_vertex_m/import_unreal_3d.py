@@ -1,5 +1,6 @@
 #   V1.3.5
 import bpy, bmesh, sys, os
+from bpy_extras import anim_utils
 
 bDebug = False #print more information (much slower)
 
@@ -286,8 +287,9 @@ def make_mesh(PATH, IM_ANIM, FORMAT, IM_MATT, SCALE, A_START, A_END, FRAME):
         ob.data.shape_keys.keyframe_insert("eval_time", frame=0)
         ob.data.shape_keys.eval_time = bpy.context.scene.frame_end*10 #Eval_time of 10 = 1 frame
         ob.data.shape_keys.keyframe_insert("eval_time", frame=bpy.context.scene.frame_end)
-        ob.data.shape_keys.animation_data.action.fcurves[0].keyframe_points[0].interpolation = 'LINEAR'
-        ob.data.shape_keys.animation_data.action.fcurves[0].keyframe_points[1].interpolation = 'LINEAR'
+        anim_data = ob.data.shape_keys.animation_data
+        anim_utils.action_get_channelbag_for_slot(anim_data.action, anim_data.action_slot).fcurves[0].keyframe_points[0].interpolation = 'LINEAR'
+        anim_utils.action_get_channelbag_for_slot(anim_data.action, anim_data.action_slot).fcurves[0].keyframe_points[1].interpolation = 'LINEAR'
         bpy.context.scene.frame_set(0)
 
 def load (operator, context, filepath, i_anim, a_format, i_matt, i_scale, frame_start, frame_end, frame_single):

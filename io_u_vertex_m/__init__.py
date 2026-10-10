@@ -5,6 +5,9 @@
 #
 #   History:
 #
+#   1.4.0 - 01/10/2025
+#       -Fixed issue with import/export error due to fcurves on blender versions 4.4+.
+#
 #   1.3.8 - 14/12/2024
 #       -Fixed issue with wrong material index being assigned to polygons. It now correctly searches in the object's assigned materials rather than the entire open .blend file's materials array.
 #
@@ -90,8 +93,8 @@
 bl_info = {
     "name": "Unreal Engine 1 Vertex Mesh Format",
     "author": "Skywolf",
-    "version": (1, 3, 8),
-    "blender": (4, 1, 1),
+    "version": (1, 4, 0),
+    "blender": (5, 2, 2),
     "location": "File > Import-Export",
     "description": "Export and import _a.3d and _d.3d files",
     "warning": "",
